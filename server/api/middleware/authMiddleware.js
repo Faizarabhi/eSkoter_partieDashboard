@@ -12,7 +12,7 @@ const protect = asyncHandler(async (req, res, next) => {
       //create token
       token = req.headers.authorization.split(" ")[1];
       //verify token
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const decoded = jwt.verify(token, "process.env.JWT_SECRET");
       // Get admin by id
       req.admin = await admin.findById(decoded.id).select("-password");
     //   res.send(req.admin);
